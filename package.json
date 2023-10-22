@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate",
+    "postinstall": "pnpm db:generate",
+    "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy"
   },
   "dependencies": {
