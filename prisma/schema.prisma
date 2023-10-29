@@ -38,13 +38,14 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String       @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?      @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
+  teams         TeamMember[]
 }
 
 model VerificationToken {
@@ -53,4 +54,26 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Team {
+  id      String       @id @default(cuid())
+  name    String
+  members TeamMember[]
+}
+
+model TeamMember {
+  teamId   String
+  team     Team       @relation(fields: [teamId], references: [id])
+  memberId String
+  member   User       @relation(fields: [memberId], references: [id])
+  role     MemberRole
+
+  @@id([teamId, memberId])
+}
+
+enum MemberRole {
+  Owner
+  Admin
+  Member
 }
