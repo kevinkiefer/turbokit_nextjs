@@ -1,7 +1,14 @@
+"use client";
+
+import { api } from "@/core/api/api";
 import { FunctionComponent } from "react";
 
 const DashboardPage: FunctionComponent = () => {
-    return <>Welcome in your protected area!</>
+    const { data } = api.greeting.useQuery();
+    return <>
+        Welcome in your protected area! <br />
+        Message from server: {data}
+    </>
 }
 
 export default DashboardPage;
