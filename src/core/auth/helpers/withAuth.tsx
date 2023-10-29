@@ -14,6 +14,6 @@ export const withAuth = <TProps extends Record<string, any> = {}>(
             redirect(appConfig.paths.signIn);
         }
 
-        return <Component {...props} />;
+        return <Component session={session} {...props} />;
     };
 };
