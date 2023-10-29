@@ -1,3 +1,7 @@
 export default function Home() {
-  return <main>Hello from Turbokit!</main>;
+  return (
+    <main>
+      Hello from Turbokit!
+    </main>
+  );
 }
