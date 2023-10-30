@@ -7,6 +7,8 @@ import { Label } from '@/core/ui/Label';
 import { Spinner } from '@/core/ui/Spinner';
 import { useToast } from '@/core/ui/Toast';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useQueryClient } from '@tanstack/react-query';
+import { getQueryKey } from '@trpc/react-query';
 import { FunctionComponent } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
@@ -24,14 +26,16 @@ type TeamNameFormProps = {
 
 export const TeamNameForm: FunctionComponent<TeamNameFormProps> = ({ id }) => {
   const toast = useToast();
+  const queryClient = useQueryClient();
   const { mutate, isLoading } = api.teams.changeTeamName.useMutation({
-    onSuccess: (_data, _variables, context) => {
+    onSuccess: () => {
       toast.create({
         title: 'Team name updated',
         description: 'Bla bla bla',
         placement: 'bottom-end',
         type: 'success',
       });
+      queryClient.invalidateQueries(getQueryKey(api.teams.getTeams));
     },
   });
 
