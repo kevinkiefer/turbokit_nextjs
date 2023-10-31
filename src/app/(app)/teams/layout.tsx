@@ -1,9 +1,15 @@
 import appConfig from '@/app.config';
 import { getServerAppSession } from '@/core/auth/getServerAppSession';
 import { withAuth } from '@/core/auth/helpers/withAuth';
-import { AppShell, AppShellHeader, AppShellMain } from '@/core/ui/AppShell';
+import {
+  AppShell,
+  AppShellHeader,
+  AppShellMain,
+  AppShellSidebar,
+} from '@/core/ui/AppShell';
 import { ClientProvider } from '@/lib/api/client/ClientProvider';
 import { Header } from '@/lib/components/Header/Header';
+import { AppSidebar } from '@/lib/components/Sidebar/AppSidebar';
 import { teamsService } from '@/lib/teams/services/teamsService';
 import { redirect } from 'next/navigation';
 import { PropsWithChildren } from 'react';
@@ -26,6 +32,9 @@ const AppLayout = async ({ children }: PropsWithChildren) => {
         <AppShellHeader>
           <Header />
         </AppShellHeader>
+        <AppShellSidebar>
+          <AppSidebar />
+        </AppShellSidebar>
         <AppShellMain>
           <Box maxW="6xl" mx="auto">
             {children}
