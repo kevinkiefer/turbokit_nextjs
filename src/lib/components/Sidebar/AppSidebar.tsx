@@ -7,6 +7,7 @@ import {
   SidebarNavigation,
 } from '@/core/ui/Sidebar';
 import { Text } from '@/core/ui/Text';
+import { TeamSelect } from '@/lib/teams/components/TeamSelect';
 import { FunctionComponent } from 'react';
 import { Navigation } from './Navigation';
 
@@ -21,7 +22,9 @@ export const AppSidebar: FunctionComponent = () => {
       <SidebarNavigation>
         <Navigation />
       </SidebarNavigation>
-      <SidebarFooter></SidebarFooter>
+      <SidebarFooter>
+        <TeamSelect />
+      </SidebarFooter>
     </Sidebar>
   );
 };

@@ -16,8 +16,6 @@ export const Sidebar = styled('aside', {
     bottom: 0,
     left: 0,
     bg: 'bg.subtle',
-    px: 4,
-    pb: 4,
   },
 });
 
@@ -26,18 +24,26 @@ export const SidebarHeader = styled(Box, {
     gridArea: 'header',
     display: 'flex',
     alignItems: 'center',
+    px: 4,
+    py: 4,
   },
 });
 
 export const SidebarNavigation = styled('nav', {
   base: {
     gridArea: 'nav',
-    py: 2,
+    px: 4,
+    py: 4,
   },
 });
 
 export const SidebarFooter = styled(Box, {
   base: {
     gridArea: 'footer',
+    borderTopWidth: '1px',
+    borderTopStyle: 'solid',
+    borderTopColor: 'border.subtle',
+    px: 4,
+    py: 4,
   },
 });
