@@ -14,7 +14,20 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      semanticTokens: {
+        colors: {
+          danger: {
+            default: {
+              value: {
+                base: "{colors.ruby.10}",
+                _dark: "{colors.ruby.10}"
+              }
+            }
+          }
+        }
+      }
+    },
   },
 
   jsxFramework: 'react',
