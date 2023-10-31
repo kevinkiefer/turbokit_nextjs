@@ -3,6 +3,7 @@ import { createAppConfiguration } from "./core/config/createAppConfiguration";
 export default createAppConfiguration({
     paths: {
         signIn: "/auth/login",
-        appHome: "/dashboard"
+        appHome: "/teams/{teamId}/dashboard",
+        onboarding: "/onboarding",
     }
 })

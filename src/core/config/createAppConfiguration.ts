@@ -3,7 +3,8 @@ import { z } from "zod";
 const appConfigurationSchema = z.object({
     paths: z.object({
         signIn: z.string().default("/auth/login"),
-        appHome: z.string().default("/dashboard"),
+        appHome: z.string().default("/teams/{teamId}/dashboard"),
+        onboarding: z.string().default("/onboarding"),
     }),
 });
 

@@ -1,6 +1,6 @@
 'use client';
 
-import appConfig from '@/app.config';
+import { useDashboardPath } from '@/core/hooks/useDashboardPath';
 import { Button } from '@/core/ui/Button';
 import { Input } from '@/core/ui/Input';
 import { Spinner } from '@/core/ui/Spinner';
@@ -49,10 +49,11 @@ const ContinueButton: FunctionComponent<ContinueButtonProps> = ({
 
 export const CreateTeamForm: FunctionComponent = () => {
   const router = useRouter();
+  const { getPath } = useDashboardPath();
 
   const { mutate, isLoading, isSuccess } = api.teams.createTeam.useMutation({
-    onSuccess: () => {
-      router.push(appConfig.paths.appHome);
+    onSuccess: (data) => {
+      router.push(getPath(data.id));
     },
   });
 
