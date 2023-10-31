@@ -3,7 +3,7 @@
 import { httpBatchLink, loggerLink } from "@trpc/client";
 import { createTRPCNext } from "@trpc/next";
 import superjson from "superjson";
-import { AppRouter } from "../server/api/root";
+import { AppRouter } from "../server/root";
 
 export const getBaseUrl = () => {
 
