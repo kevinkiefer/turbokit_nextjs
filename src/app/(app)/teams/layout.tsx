@@ -13,7 +13,6 @@ import { AppSidebar } from '@/lib/components/Sidebar/AppSidebar';
 import { teamsService } from '@/lib/teams/services/teamsService';
 import { redirect } from 'next/navigation';
 import { PropsWithChildren } from 'react';
-import { Box } from '~/styled-system/jsx';
 
 const AppLayout = async ({ children }: PropsWithChildren) => {
   const session = await getServerAppSession();
@@ -35,11 +34,7 @@ const AppLayout = async ({ children }: PropsWithChildren) => {
         <AppShellSidebar>
           <AppSidebar />
         </AppShellSidebar>
-        <AppShellMain>
-          <Box maxW="6xl" mx="auto">
-            {children}
-          </Box>
-        </AppShellMain>
+        <AppShellMain>{children}</AppShellMain>
       </AppShell>
     </ClientProvider>
   );

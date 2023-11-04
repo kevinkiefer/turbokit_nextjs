@@ -1,7 +1,8 @@
 import z from 'zod';
+import { teamNameSchema } from './teamNameSchema';
 
 export const createTeamSchema = z.object({
-    name: z.string().min(3),
+    name: teamNameSchema,
 });
 
 export type CreateTeamSchema = z.infer<typeof createTeamSchema>;

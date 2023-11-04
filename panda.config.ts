@@ -4,7 +4,7 @@ export default defineConfig({
   // Whether to use css reset
   preflight: true,
 
-  presets: ['@pandacss/preset-base', '@park-ui/panda-preset'],
+  presets: ['@pandacss/dev/presets', '@park-ui/panda-preset'],
 
   // Where to look for your css declarations
   include: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -20,13 +20,13 @@ export default defineConfig({
           danger: {
             default: {
               value: {
-                base: "{colors.ruby.10}",
-                _dark: "{colors.ruby.10}"
-              }
-            }
-          }
-        }
-      }
+                base: '{colors.ruby.10}',
+                _dark: '{colors.ruby.10}',
+              },
+            },
+          },
+        },
+      },
     },
   },
 
